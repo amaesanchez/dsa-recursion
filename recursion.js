@@ -62,34 +62,55 @@ function find(arr, val) {
 //     return find(arr.slice(1), val);
 //   }
 // }
-
+//racecar 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
-function isPalindrome(str) {}
+function isPalindrome(str, out = "", i = (str.length - 1)) {
+
+  if (i < 0) return out;
+
+
+  out += isPalindrome(str, str[i], i -= 1);
+
+  if (str.length === out.length) {
+    return (str === out);
+  } else {
+    return out;
+  }
+
+}
 
 /** revString: return a copy of a string, but in reverse. */
 
-function revString(str) {}
+function revString(str, out = "", i = (str.length - 1)) {
+  if (i < 0) return out;
+
+  out += revString(str, str[i], i -= 1);
+
+  return out;
+
+}
+revString("porcupine");
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
-function findIndex(arr, val) {}
+function findIndex(arr, val) { }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
-function gatherStrings(obj) {}
+function gatherStrings(obj) { }
 
 // FURTHER STUDY
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return true if val is in array, false if not present). */
 
-function binarySearch(arr, val) {}
+function binarySearch(arr, val) { }
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 
-function binarySearchIndex(arr, val) {}
+function binarySearchIndex(arr, val) { }
 
 // you might find the above two problems easier if you change the function signature to:
 //
