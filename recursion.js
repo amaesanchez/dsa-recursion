@@ -136,29 +136,50 @@ let nestedObj = {
   firstName: "Lester",
   favoriteNumber: 22,
   moreData: {
-    lastName: "Testowitz"
+    lastName: "Testowitz",
   },
   funFacts: {
     moreStuff: {
       anotherNumber: 100,
       deeplyNestedString: {
         almostThere: {
-          success: "you made it!"
-        }
-      }
+          success: "you made it!",
+        },
+      },
     },
-    favoriteString: "nice!"
-  }
+    favoriteString: "nice!",
+  },
 };
 
-gatherStrings(nestedObj);
+// gatherStrings(nestedObj);
 
 // FURTHER STUDY
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return true if val is in array, false if not present). */
 
-function binarySearch(arr, val) {}
+function binarySearch(
+  arr,
+  val,
+  left = 0,
+  right = arr.length - 1
+) {
+
+  if (left > right) return false;
+
+  const i = Math.floor((left + right) / 2)
+
+  if (arr[i] === val) {
+    return true
+
+  } else if (arr[i] > val) {
+    right = i - 1
+  } else if (arr[i] < val) {
+    left = i + 1
+  }
+  return binarySearch(arr, val, left, right)
+}
+binarySearch([1, 2, 3, 4], 4);
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
